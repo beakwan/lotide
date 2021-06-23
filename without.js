@@ -26,24 +26,25 @@ const assertArraysEqual = function(array1, array2) {
 
 
 const without = function(source, remove) {
-  let keepThese = [];
-  let removeThese = [];
-  for (let i = 0; i < source.length; i++) {
-    for (let j = 0; j < remove.length; j++) {
-      if (source[i] === remove[j]) {
-        removeThese.push(source[i]);
-        break;
-      } else {
-        keepThese.push(source[i]);
-        break;
+  let keepThese = true;
+  let newArray = [];
+  for (let element of source) {
+    keepThese = true; 
+    for (let rem of remove) {
+      if (element === rem) {
+        keepThese = false;
       }
     }
+    if (keepThese) {
+      newArray.push(element);
+    }
   }
-  console.log(keepThese);
-  return keepThese;
-}
-without([1, 2, 1, 3], [1]);
-without([1, '2', '3'], ['2', 3]);
+  return newArray;
+};
+
+
+console.log(without([1, 2, 1, 3], [1]));
+console.log(without([1, '2', '3'], ['2', 3]));
 
 
 const words = ["hello", "world", "lighthouse"];
