@@ -12,12 +12,10 @@ const middle = function (array) {
       middleElements.push(array[Math.floor(array.length / 2)]);
     }
   }
-  console.log(middleElements);
   return middleElements;
 };
 
 module.exports = middle;
 
 
-middle([1, 2, 3, 4, 5]);
-middle([1, 2, 3, 4]);
+
